@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>For You ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(
+    180deg,
+    #f8ede3 0%,
+    #f9dcc4 25%,
+    #f8c8dc 50%,
+    #d8bfd8 75%,
+    #f6e6cb 100%
+    );
+
+    background-attachment:fixed;
+
+    color:#e87e7e;
+
+    overflow-x:hidden;
+}
+/* FLOATING HEARTS */
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.hearts span{
+    position:absolute;
+    bottom:-50px;
+    font-size:20px;
+    animation:floatHearts 12s linear infinite;
+    opacity:0.15;
+}
+
+.hearts span:nth-child(1){
+    left:10%;
+    animation-duration:10s;
+}
+
+.hearts span:nth-child(2){
+    left:30%;
+    animation-duration:14s;
+}
+
+.hearts span:nth-child(3){
+    left:50%;
+    animation-duration:11s;
+}
+
+.hearts span:nth-child(4){
+    left:70%;
+    animation-duration:13s;
+}
+
+.hearts span:nth-child(5){
+    left:90%;
+    animation-duration:9s;
+}
+
+@keyframes floatHearts{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:0.2;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
+    url('hero.jpg') center/cover;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:200%;
+    height:200%;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(255,255,255,0.08),
+    transparent 60%
+    );
+
+    animation:moveLight 10s linear infinite;
+}
+
+@keyframes moveLight{
+
+    0%{
+        transform:translate(-30%,-30%);
+    }
+
+    50%{
+        transform:translate(-10%,-10%);
+    }
+
+    100%{
+        transform:translate(-30%,-30%);
+    }
+}
+
+.hero-content{
+    z-index:2;
+}
+
+.hero-content h1{
+    font-family:'Playfair Display',serif;
+    font-size:5rem;
+    margin-bottom:20px;
+
+    animation:fadeDown 1.5s ease;
+}
+
+.hero-content p{
+    font-size:1.2rem;
+    max-width:700px;
+    line-height:1.8;
+    color:#fdf7f2;
+
+    animation:fadeUp 1.5s ease;
+}
+
+.hero button{
+    margin-top:35px;
+    padding:14px 35px;
+    border:none;
+    border-radius:40px;
+
+    background:#fff5ef;
+    color:#6d4c41;
+
+    font-size:1rem;
+    cursor:pointer;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 4px 20px rgba(255,255,255,0.3);
+}
+
+.hero button:hover{
+    transform:scale(1.08);
+}
+
+/* GENERAL SECTION */
+
+section{
+    padding:100px 12%;
+}
+
+.section-title{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;
+    margin-bottom:35px;
+    text-align:center;
+
+    color:#5a3e36;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,0.5);
+}
+
+.text{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    line-height:2;
+    color:#4a4a4a;
+    font-size:1.1rem;
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    margin-top:60px;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:0;
+
+    width:3px;
+    height:100%;
+
+    background:#e8dccf;
+
+    transform:translateX(-50%);
+}
+
+.memory{
+    width:45%;
+    padding:25px;
+
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+
+    border-radius:20px;
+
+    position:relative;
+
+    margin-bottom:50px;
+
+    transition:0.5s;
+}
+
+.memory:hover{
+    transform:translateY(-10px);
+}
+
+.memory img{
+    width:100%;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.memory h3{
+    margin-bottom:10px;
+    color:#6d4c41;
+}
+
+.memory p,
+.hidden-message{
+    color:#555;
+    line-height:1.7;
+}
+
+.left{
+    left:0;
+}
+
+.right{
+    left:55%;
+}
+
+.memory::after{
+    content:'❤️';
+
+    position:absolute;
+    top:30px;
+
+    font-size:1.5rem;
+}
+
+.left::after{
+    right:-45px;
+}
+
+.right::after{
+    left:-45px;
+}
+
+/* OPEN WHEN */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:60px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    transition:0.4s;
+
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,0.08);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#7b4b5a;
+}
+
+.hidden-message{
+    margin-top:15px;
+    display:none;
+    color:#6d4c41;
+    line-height:1.7;
+}
+
+/* FINAL */
+
+.final{
+    text-align:center;
+}
+
+.final p{
+    max-width:800px;
+    margin:auto;
+
+    line-height:2;
+
+    color:#7b4b5a;
+
+    font-size:1.15rem;
+}
+
+/* MUSIC BUTTON */
+.music-btn{
+    position:fixed;
+
+    bottom:20px;
+    right:20px;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#fff5ef;
+
+    color:#6d4c41;
+
+    cursor:pointer;
+
+    font-size:1.3rem;
+
+    box-shadow:
+    0 0 20px rgba(255,255,255,0.5);
+
+    transition:0.4s;
+}
+
+.music-btn:hover{
+    transform:scale(1.1);
+}
+
+/* SCROLL ANIMATION */
+
+.hidden{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 1.2s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.timeline::before{
+    left:10px;
+}
+
+.memory{
+    width:100%;
+    left:0 !important;
+    margin-left:30px;
+}
+
+.memory::after{
+    left:-35px !important;
+}
+
+.hero-content h1{
+    font-size:3rem;
+}
+
+.section-title{
+    font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING HEARTS -->
+
+<div class="hearts">
+    <span>❤️</span>
+    <span>🤍</span>
+    <span>❤️</span>
+    <span>🤍</span>
+    <span>❤️</span>
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>For You ❤️</h1>
+
+<p>
+I know things are broken right now.  
+But I wanted to tell you everything properly, honestly, and from my heart.
+</p>
+
+<button onclick="document.getElementById('message').scrollIntoView()">
+Read This
+</button>
+
+</div>
+
+</section>
+
+<!-- MESSAGE -->
+
+<section id="message" class="hidden">
+
+<h2 class="section-title">What I Realized</h2>
+
+<p class="text">
+
+I understood how deeply my actions hurt you.
+And honestly, that realization hurts me too.
+
+<br><br>
+
+You deserved honesty, peace, reassurance, and understanding from me.
+Not confusion or pain.
+
+<br><br>
+
+I know I cannot erase what happened,
+but I needed you to know that I truly understand my mistake now.
+
+</p>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="hidden">
+
+<h2 class="section-title">Our Memories ✨</h2>
+
+<div class="timeline">
+
+<div class="memory left">
+
+<img src="C:\Users\Neelavati\OneDrive\Desktop\Neelavati\my\photo1.jpeg">
+
+<h3>The Day We Couldn't Stop Laughing</h3>
+
+<p>
+That day still plays in my mind like my favorite movie scene.
+</p>
+
+</div>
+
+<div class="memory right">
+
+<img src="C:\Users\Neelavati\OneDrive\Desktop\Neelavati\my\photo2.jpeg">
+
+<h3>Late Night Conversations</h3>
+
+<p>
+Somehow your voice always made stressful days feel lighter.
+</p>
+
+</div>
+
+<div class="memory left">
+
+<img src="C:\Users\Neelavati\OneDrive\Desktop\Neelavati\my\photo3.jpeg">
+
+<h3>The Little Things</h3>
+
+<p>
+The way you cared for me in small ways meant more than you know.
+</p>
+
+</div>
+
+<div class="memory right">
+
+<img src="C:\Users\Neelavati\OneDrive\Desktop\Neelavati\my\photo4.jpeg">
+
+<h3>Every Moment With You</h3>
+
+<p>
+You slowly became my comfort, my happiness, and my safe place.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- OPEN WHEN -->
+
+<section class="hidden">
+
+<h2 class="section-title">Open When...</h2>
+
+<div class="cards">
+
+<div class="card" onclick="toggleMessage(this)">
+
+<h3>Open when you're angry</h3>
+
+<div class="hidden-message">
+
+I understand your anger.  
+And honestly, you had every reason to feel hurt.
+
+</div>
+
+</div>
+
+<div class="card" onclick="toggleMessage(this)">
+
+<h3>Open when you miss me</h3>
+
+<div class="hidden-message">
+
+No matter what happens,
+the memories we created will always stay special to me.
+
+</div>
+
+</div>
+
+<div class="card" onclick="toggleMessage(this)">
+
+<h3>Open when you need reassurance</h3>
+
+<div class="hidden-message">
+
+My feelings for you were always real,
+even if I failed to express them correctly.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXTRA MESSAGE -->
+
+<section class="hidden">
+
+<h2 class="section-title">One Last Thing...</h2>
+
+<p class="text">
+
+If this website made you smile even for a few seconds,
+then maybe there’s still a small part of us worth saving.
+
+<br><br>
+
+No matter what happens,
+thank you for being one of the most beautiful parts of my life.
+
+</p>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final hidden">
+
+<h2 class="section-title">If Life Gives Us Another Chance</h2>
+
+<p>
+
+I don't want perfection.  
+I just want honesty, communication, understanding, and a healthier version of us.
+
+<br><br>
+
+I know trust takes time to rebuild.
+And I know I cannot ask for instant forgiveness.
+
+<br><br>
+
+But if life ever gives us another chance,
+I promise I’ll value your heart more carefully this time.
+
+<br><br>
+
+You don't have to reply immediately.  
+Take all the time you need.
+
+<br><br>
+
+I just wanted you to know my heart clearly once.
+❤️
+
+</p>
+
+</section>
+
+<!-- MUSIC -->
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="playMusic()">
+🎵
+</button>
+
+<script>
+
+/* OPEN WHEN */
+
+function toggleMessage(card){
+
+    let msg = card.querySelector('.hidden-message');
+
+    if(msg.style.display === 'block'){
+
+        msg.style.display = 'none';
+
+    }else{
+
+        msg.style.display = 'block';
+    }
+}
+
+/* MUSIC */
+
+const music = document.getElementById("music");
+const btn = document.querySelector(".music-btn");
+
+function playMusic(){
+
+    if(music.paused){
+
+        music.play();
+        btn.innerHTML = "⏸";
+
+    }else{
+
+        music.pause();
+        btn.innerHTML = "🎵";
+    }
+}
+
+/* SCROLL ANIMATION */
+
+const hiddenElements = document.querySelectorAll('.hidden');
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add('show');
+        }
+    });
+
+});
+
+hiddenElements.forEach((el)=>observer.observe(el));
+
+</script>
+
+</body>
+</html>
